@@ -37,9 +37,10 @@ sum_love = letter_o + letter_l + letter_v + letter_e + \
     letter_l2 + letter_o2 + letter_v2 + letter_e2
 
 score = str(sum_true) + str(sum_love)
+int_score = int(score)
 
-score_coke = score <= '10' or score >= '90'
-score_together = score >= '40' and score <= '50'
+score_coke = int_score < 10 or int_score > 90
+score_together = int_score >= 40 and int_score <= 50
 
 if score_coke:
     print(f'Your score is {score}, you go together like coke and mentos.')
