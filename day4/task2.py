@@ -1,3 +1,5 @@
+import random
+
 # Import the random module here
 
 # Split string method
@@ -7,4 +9,11 @@ names = names_string.split(", ")
 
 #Write your code below this line 👇
 
-print(names)
+names_length = len(names)
+
+random_number = random.randint(0, names_length - 1)
+
+selected_guest = names[random_number]
+
+message = f'{selected_guest} is going to buy the meal today!'
+print(message)
