@@ -8,9 +8,6 @@ name2 = input("What is their name? \n")
 name_lower1 = name1.lower()
 name_lower2 = name2.lower()
 
-print(name_lower1)
-print(name_lower2)
-
 count = 0
 
 letter_t = name_lower1.count('t')
@@ -41,10 +38,8 @@ sum_love = letter_o + letter_l + letter_v + letter_e + \
 
 score = str(sum_true) + str(sum_love)
 
-print(score)
-
-score_coke = score <= 10 or score >= 90
-score_together = score <= 50 and score >= 40
+score_coke = score <= '10' or score >= '90'
+score_together = score >= '40' and score <= '50'
 
 if score_coke:
     print(f'Your score is {score}, you go together like coke and mentos.')
