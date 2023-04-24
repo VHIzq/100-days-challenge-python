@@ -1,11 +1,11 @@
 import random
 
-random_integer = random.randint(1,5)
+ran_integer = random.randint(1,5)
 
-print(random_integer)
+print(ran_integer)
 
-random_float = random.random()
-print(random_float)
+ran_float = random.random()
+print(ran_float)
 
-random_decimal = 5 * random_float
-print(random_decimal)
+ran_decimal = 5 * ran_float
+print(ran_decimal)
