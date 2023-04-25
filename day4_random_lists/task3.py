@@ -8,11 +8,12 @@ position = input("Where do you want to put the treasure? ")
 # 🚨 Don't change the code above 👆
 
 # Write your code below this row 👇
-position_str = str(position)
-first_number = int(position_str[0])
-second_number = int(position_str[1])
-new_position = mapping[second_number -1][first_number -1] = 'X'
-print(new_position)
+position_int = int(position)
+print(position_int)
+new_position = mapping[1][1] = 'X'
+#print(new_position)
+
+
 
 # Write your code above this row 👆
 
