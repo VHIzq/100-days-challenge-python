@@ -20,11 +20,16 @@ print(guess)
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
 
 guess_list = list(chosen_word)
+display = []
 
 for char in guess_list:
   isMatch = char == guess
+
   if isMatch:
     print('matches!')
+    display.append(guess)
   else:
     print('Shot!')
+    display.append('_')
     
+print(display)
