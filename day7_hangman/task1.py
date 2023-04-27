@@ -1,14 +1,10 @@
 # Step 1
-import random
-word_list = ["aardvark", "baboon", "camel"]
+
 
 # TODO-1 - Randomly choose a word from the word_list and assign it to a variable called chosen_word.
-chosen_word = random.choice(word_list)
-print(chosen_word)
+
 
 # TODO-2 - Ask the user to guess a letter and assign their answer to a variable called guess. Make guess lowercase.
-guess = input('Try to guess a letter from the word \n').lower()
-print(guess)
 
 # TODO-3 - Check if the letter the user guessed (guess) is one of the letters in the chosen_word.
 
@@ -19,11 +15,23 @@ print(guess)
 #TODO-3: - Print 'display' and you should see the guessed letter in the correct position and every other letter replace with "_".
 #Hint - Don't worry about getting the user to guess the next letter. We'll tackle that in step 3.
 
+#TODO-1: - Use a while loop to let the user guess again. The loop should only stop once the user has guessed all the letters in the chosen_word and 'display' has no more blanks ("_"). Then you can tell the user they've won.
+
+import random
+word_list = ["aardvark", "baboon", "camel"]
+
+chosen_word = random.choice(word_list)
+print(chosen_word)
+
 guess_list = list(chosen_word)
 display = []
+blanks_count = 0
 
-for char in guess_list:
-  isMatch = char == guess
+while blanks_count == 0:
+  guess = input('Try to guess a letter from the word \n').lower()
+  print(guess)
+  for char in guess_list:
+    isMatch = char == guess
 
   if isMatch:
     print('matches!')
@@ -31,5 +39,10 @@ for char in guess_list:
   else:
     print('Shot!')
     display.append('_')
-    
+      
+blanks_count = display.count('_')
+
+
 print(display)
+print(blanks_count)
+
