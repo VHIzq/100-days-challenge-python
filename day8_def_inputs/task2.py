@@ -1,11 +1,16 @@
 #Write your code below this line 👇
 
 def prime_checker(number):
-  is_div_by_one = number % 1 == 0
-  is_div_by_self = number % number == 0
-  print(is_div_by_one)
-  print(is_div_by_self)
-
+  is_prime = True
+  for div in range(2, number):
+    if number % div == 0:
+      is_prime = False
+  if is_prime:
+    print("It's a prime number.")
+  else:
+    print("It's not a prime number.")
+      
+    
 #Write your code above this line 👆
     
 #Do NOT change any of the code below👇
