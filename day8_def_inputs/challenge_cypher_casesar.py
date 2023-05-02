@@ -1,10 +1,17 @@
+import logo
+
 alphabet = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
             'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z']
 
+print(logo.logo)
 direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
 text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
+
+play_again = False
+
+#ask_again = input('Do you want to play again? type yes or not').lower()
 
 def caesar(text, shift, direction):
   plain_text = ''
@@ -23,9 +30,19 @@ def caesar(text, shift, direction):
   if forward:
     print(f'Crypted message is {plain_text}')
   else:
-    print(f'The decoded text is {plain_text} ')
+    print(f'The decoded text is {plain_text}')
 
-caesar(text, shift, direction)
+
+def check_shift():
+  if not shift > 26 or shift != 26:
+    caesar(text, shift, direction)
+  else:
+    print('Please, enter a shift minus than 26')
+check_shift()
+""" if ask_again == 'yes':
+  play_again = True
+  while play_again:
+    check_shift() """
 
 # TODO-1: Import and print the logo from art.py when the program starts.
 
