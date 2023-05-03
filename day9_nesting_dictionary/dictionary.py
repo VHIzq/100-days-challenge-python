@@ -6,7 +6,7 @@ programming_dictionary = {
 #print(programming_dictionary['Bug'])
 
 """ new entry """
-programming_dictionary['loop'] = 'new def'
+programming_dictionary['Function'] = 'new def'
 
 """ create an empty dic """
 empty_dictionary = {}
