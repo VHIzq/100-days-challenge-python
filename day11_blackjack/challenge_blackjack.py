@@ -10,25 +10,27 @@ def check_blackjack(hand_cards):
   for hand in hand_blackjack:
     if hand == hand_cards:
       return True
+  return False
 
 def calculate_scores(hand):
-  set_hand = deal_card()
   hand_score = sum(hand)
-  change_ace(hand_score, set_hand)
+  change_ace(hand_score, hand)
   return hand_score
 
 def change_ace(score_hand, hand_cards):
   is_hand_burst = score_hand > 21
-  blackjack_hand = check_blackjack(hand_cards)
-  if is_hand_burst and  blackjack_hand:
-    hand_cards = []
-    return hand_cards.extend([10, 1])
+  if is_hand_burst:
+    for i, card in enumerate(hand_cards):
+      if card == 11:
+        hand_cards[i] = 1
+        break
 
 def deal_card():
   set_hand = []
   random_hand = random.choices(cards, k=2)
   set_hand.extend(random_hand)
-  check_blackjack(set_hand)
+  if check_blackjack(set_hand):
+    print('Blackjack!')
   return set_hand
 
 
@@ -45,15 +47,24 @@ def who_is_winner():
     
   elif is_comp_winner or is_comp_greater:
     print('Game Over: U Lose!')
+  else:
+    print('Game Over: Tie!')
+
+def draw_new_card(hand_cards):
+  ask_card = input(
+    "Type 'y' if you want to get another card or 'n' if you donn't: "
+  ).lower()
+  
+  if ask_card == 'y':
+    extra_card = random.choice(cards)
+    hand_cards.append(extra_card)
 
 def end_game():
-  has_winner = who_is_winner()
-  is_burst = user_score > 21 or comp_score > 21
+  draw_new_card(new_cards)
+  while comp_score < 17:
+    draw_new_card(new_cards_comp)
+  who_is_winner()
   
-  if has_winner or is_burst:
-    print('Burst!')
-    return
-
 
 new_cards = deal_card()
 user_score =calculate_scores(new_cards)
