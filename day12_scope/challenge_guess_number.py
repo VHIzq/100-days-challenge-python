@@ -33,12 +33,11 @@ def guessing_number(trys):
     else:
       if guess > game:
         print(f'Too high: {guess}')
-        trys -= 1
-        guessing_number(trys)
       elif guess < game:
         print(f'Too low: {guess}')
-        trys -= 1
-        guessing_number(trys)
+        
+      trys -= 1
+      guessing_number(trys)
         
   elif trys == 0:
     print(f'You ran out of tries. The number was: {game}')
