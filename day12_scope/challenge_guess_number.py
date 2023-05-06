@@ -11,27 +11,36 @@
 import random
 
 game = random.randint(1, 100)
-attempts = 0
+print(game)
 
 level = int(input('Choose a difficulty level: Type "0" for easy with 10 guesses or type "1" for hard mode with 5 guesses'))
 
+attempts = 0
 if level == 0:
-  attempts = 10 
+  attempts = 10
+  print('Easy mode') 
 else:
   attempts = 5
+  print('Hard mode')
 
 def guessing_number(trys):
   if trys > 0:
     guess = int(input('Guess a number between 1 and 100'))
     
     if guess == game:
-      print('You guessed the number!')
+      print(f'You guessed the number! It was: {game}')
       return
     else:
-      print('Try again')
-      trys -= 1
-      guessing_number(trys)
-      if trys == 0:
-        print(f'You ran out of tries. The number was: {game}')
+      if guess > game:
+        print(f'Too high: {guess}')
+        trys -= 1
+        guessing_number(trys)
+      elif guess < game:
+        print(f'Too low: {guess}')
+        trys -= 1
+        guessing_number(trys)
+        
+  elif trys == 0:
+    print(f'You ran out of tries. The number was: {game}')
   
 guessing_number(trys=attempts)
