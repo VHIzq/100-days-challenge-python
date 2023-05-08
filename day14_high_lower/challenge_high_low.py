@@ -21,11 +21,13 @@ card_b = f'Against B: {generate_card(random_number=number_b)}'
 followers_a = number_a['follower_count']
 followers_b = number_b['follower_count']
 
-print(card_a)
-print(followers_a)
+def print_card(card_item, followers_item):
+  print(card_item)
+  print(followers_item)
+
+print_card(card_a, followers_a)
 print(vs)
-print(card_b)
-print(followers_b)
+print_card(card_b, followers_b)
 
 #ask to user to pick an option.
 asking = input('Who has more followers? Type "A" or "B": ').upper()
@@ -49,9 +51,19 @@ def comparator():
       print('You are wrong!')
   else:
     print('Introduce a valid option: ')
-    
-comparator()
+
+
 #If option selected is true, then this is going to be compared to new question. Don't game over
+if comparator():
+  print(card_b)
+  
+  print(vs)
+  
+  number_c = random.choice(data)
+  card_c = generate_card(random_number=number_c)
+  print(card_c)
+  followers_c = number_c['follower_count']
+
 
 #if pick a wrong option, game over
 
