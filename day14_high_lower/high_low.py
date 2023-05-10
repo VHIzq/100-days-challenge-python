@@ -6,6 +6,7 @@ print(logo)
 should_continue = True
 score = 0
 
+#generate a random card from data
 def generate_card(random_number):
   card_name = random_number['name']
   card_description = random_number['description']
@@ -18,12 +19,15 @@ def get_followers(random_item):
 def comparator(prev_question, next_question):
   global should_continue
   global score
+  #ask the user for a guess
   guess = input('Who has more followers?: ').upper()
   is_prev_greater = get_followers(prev_question) > get_followers(next_question)
   is_next_greater = get_followers(prev_question) < get_followers(next_question)
   
   if guess == 'A':
+    #check if is correct
     if is_prev_greater:
+      #give feedback to user
       print('you are right')
       score += 1
     else:
@@ -34,7 +38,6 @@ def comparator(prev_question, next_question):
       score += 1
     else:
       should_continue = False
-
 
 while should_continue:
   text_a = random.choice(data)
