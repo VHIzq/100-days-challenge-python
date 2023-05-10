@@ -41,6 +41,7 @@ def comparator(prev_question, next_question):
       should_continue = False
 
 while should_continue:
+  #assing to b its item to a, that way it´s free and can get a new item card to compare against a.
   text_a = text_b
   text_b = random.choice(data)
   while text_a == text_b:
