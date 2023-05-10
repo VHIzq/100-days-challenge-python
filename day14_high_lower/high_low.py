@@ -5,6 +5,7 @@ from game_data import data
 print(logo)
 should_continue = True
 score = 0
+text_b = random.choice(data)
 
 #generate a random card from data
 def generate_card(random_number):
@@ -28,24 +29,25 @@ def comparator(prev_question, next_question):
     #check if is correct
     if is_prev_greater:
       #give feedback to user
-      print('you are right')
       score += 1
+      print(f'U are right. Score: {score}')
     else:
       should_continue = False
   if guess == 'B':
     if is_next_greater:
-      print('you are right')
       score += 1
+      print(f'U are right. Score: {score}')
     else:
       should_continue = False
 
 while should_continue:
-  text_a = random.choice(data)
+  text_a = text_b
   text_b = random.choice(data)
+  while text_a == text_b:
+    text_b = random.choice(data)
+  
   generate_card(text_a)
   print(vs)
-  generate_card(text_b)
+  generate_card(text_b) 
   comparator(text_a, text_b)
-
-print(f'Score: {score}')
-print('Game Over')
+print(f'Game Over. Score: {score}') 
